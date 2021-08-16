@@ -17,9 +17,10 @@ AUE_TakeMeOhmCharacter::AUE_TakeMeOhmCharacter() {
   IsAlive = true;
   Interval = 0.0f;
   StompTime = 0.0f;
+  StompedDuration = 2.0f;
   SkeletalMesh = GetMesh();
 	// Set size for collision capsule
-	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
+	GetCapsuleComponent()->InitCapsuleSize(42.f, 65.0f);
 
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
@@ -34,7 +35,7 @@ AUE_TakeMeOhmCharacter::AUE_TakeMeOhmCharacter() {
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
 	GetCharacterMovement()->JumpZVelocity = 600.f;
-	GetCharacterMovement()->AirControl = 0.2f;
+	GetCharacterMovement()->AirControl = 0.75f;
 
   //Create a box collider for stomp detection
   HeadCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("HeadCollider"));
